@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link {{ Request::segment(1) == 'dashboard' ? '' : 'collapsed'}}" href="{{ route('dashboard')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -43,7 +43,7 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="pages-blank.html">
+        <a class="nav-link {{ Request::segment(1) == 'dokumen' ? '' : 'collapsed'}} " href="{{ route('dokumen.index')}}">
           <i class="bi bi-file-earmark"></i>
           <span>Dokumen</span>
         </a>
