@@ -25,7 +25,7 @@
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="{{ route('data2021.index')}}">
               <i class="bi bi-circle"></i><span>2021</span>
             </a>
           </li>

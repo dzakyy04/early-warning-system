@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Products\Data2021Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dokumen', [DokumenController::class, 'index'])->name('dokumen.index');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
+    Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
+    Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
 });
