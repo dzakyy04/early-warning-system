@@ -12,6 +12,8 @@ class Data2021Controller extends Controller
     public function index()
     {
         $data = Data2021::all();
+        $title = 'Product 2021';
+
 
         $data->map(function ($item) {
             $item->tanggal_penerimaan_dokumen_lengkap = Carbon::createFromFormat('Y-m-d', $item->tanggal_penerimaan_dokumen_lengkap)->locale('id')->isoFormat('D MMMM YYYY');
@@ -19,12 +21,13 @@ class Data2021Controller extends Controller
 
 
         });
-        return view('products.2021.index', compact('data'));
+        return view('products.2021.index', compact('data', 'title'));
 
     }
 
     public function create()
     {
-        return view('products.2021.create');
+        $title = 'Create Product';
+        return view('products.2021.create', compact('title'));
     }
 }

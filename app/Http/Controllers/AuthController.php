@@ -9,7 +9,8 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('login');
+        $title = 'Login';
+        return view('login', compact('title'));
     }
 
     public function login(Request $request)
@@ -21,7 +22,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('dashboard');
+            return redirect()->route('dashboard');
         }
         return back()->with('loginError', 'Email dan Password tidak sesuai');
 

@@ -8,6 +8,13 @@ class DokumenController extends Controller
 {
     public function index()
     {
-        return view('dokumen');
+        $title = 'Dokumen';
+        return view('dokumen.index', compact('title'));
+    }
+
+    public function create()
+    {
+        $title = 'Create Document';
+        return view('dokumen.create', compact('title'));
     }
 }

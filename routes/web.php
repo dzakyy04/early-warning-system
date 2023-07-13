@@ -16,16 +16,22 @@ use App\Http\Controllers\Products\Data2021Controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function() {
+    return redirect()->route('dashboard');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index']);
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dokumen', [DokumenController::class, 'index'])->name('dokumen.index');
+    Route::get('/dokumen/create', [DokumenController::class, 'create'])->name('dokumen.create');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
     Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
+    
+    
 });
