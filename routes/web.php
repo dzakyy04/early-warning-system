@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ConceptorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentController;
@@ -32,6 +33,6 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
     Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
-    
+    Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');
     
 });

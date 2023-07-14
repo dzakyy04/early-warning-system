@@ -2,53 +2,63 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link {{ Request::segment(1) == 'dashboard' ? '' : 'collapsed'}}" href="{{ route('dashboard')}}">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(2) == 'dashboard' ? '' : 'collapsed' }}"
+                href="{{ route('dashboard') }}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Produk Pelayanan</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>2023</span>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Produk Pelayanan</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
             </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>2022</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('data2021.index')}}">
-              <i class="bi bi-circle"></i><span>2021</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>2020</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>2019</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
+            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>2023</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>2022</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('data2021.index') }}">
+                        <i class="bi bi-circle"></i><span>2021</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-breadcrumbs.html">
+                        <i class="bi bi-circle"></i><span>2020</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-buttons.html">
+                        <i class="bi bi-circle"></i><span>2019</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link {{ Request::segment(1) == 'dokumen' ? '' : 'collapsed'}} " href="{{ route('dokumen.index')}}">
-          <i class="bi bi-file-earmark"></i>
-          <span>Dokumen</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(2) == 'dokumen' ? '' : 'collapsed' }} "
+                href="{{ route('dokumen.index') }}">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Dokumen</span>
+            </a>
+        </li>
 
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(2) == 'konseptor' ? '' : 'collapsed' }} "
+                href="{{ route('konseptor.index') }}">
+                <i class="bi bi-person"></i>
+                <span>Konseptor</span>
+            </a>
+        </li>
     </ul>
 
-  </aside>
+</aside>
