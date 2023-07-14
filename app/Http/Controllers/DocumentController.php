@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use Illuminate\Http\Request;
 
-class DokumenController extends Controller
+class DocumentController extends Controller
 {
     public function index()
     {
         $title = 'Dokumen';
-        return view('dokumen.index', compact('title'));
+        $documents = Document::get();
+        return view('dokumen.index', compact('title', 'documents'));
     }
 
     public function create()
