@@ -13,4 +13,14 @@ class ConceptorController extends Controller
 
         return view('konseptor.index', compact('title','conceptors'));
     }
+
+    public function store(Request $request) {
+        $data = $request->validate([
+            'nama' => 'required'
+        ]);
+
+        Conceptor::create($data);
+
+        return back()->with('success', "$request->name berhasil ditambahkan menjadi konseptor");
+    }
 }

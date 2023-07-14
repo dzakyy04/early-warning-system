@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Products\Data2021Controller;
+use App\Models\Conceptor;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,8 @@ use App\Http\Controllers\Products\Data2021Controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function() {
+
+Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
@@ -34,5 +36,5 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
     Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
     Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');
-    
+    Route::post('/konseptor', [ConceptorController::class, 'store'])->name('konseptor.store');
 });

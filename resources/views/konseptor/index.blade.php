@@ -6,6 +6,9 @@
         <div class="card">
             <div class="card-body" style="overflow-x: scroll">
                 <h5 class="card-title">Konseptor</h5>
+                <span class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#conceptorModal">
+                    <i class="bi bi-plus me-1"></i> Tambah Konseptor
+                </span>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr class="table-primary">
@@ -31,6 +34,33 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        {{-- Modal --}}
+        <div class="modal fade" id="conceptorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="conceptorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="conceptorModalLabel">Tambah Konseptor</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('konseptor.store') }}" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan nama" required>
+                                <label for="nama">Nama</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
