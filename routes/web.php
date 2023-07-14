@@ -37,4 +37,5 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
     Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');
     Route::post('/konseptor', [ConceptorController::class, 'store'])->name('konseptor.store');
+    Route::post('/konseptor/{id}/update', [ConceptorController::class, 'update'])->name('konseptor.update');
 });
