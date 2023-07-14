@@ -34,10 +34,17 @@ class ConceptorController extends Controller
             'no_whatsapp' => 'required'
         ]);
 
-        $conceptor = Conceptor::find($id);
-
-        Conceptor::where('id', $conceptor->id)->update($data);
+        $conceptor = Conceptor::findorFail($id);
+        $conceptor->update($data);
 
         return back()->with('success', "$request->name berhasil diubah");
+    }
+
+    public function delete($id)
+    {
+        $conceptor = Conceptor::findOrFail($id);
+        $conceptor->delete();
+
+        return back()->with('success', "Data berhasil dihapus");
     }
 }

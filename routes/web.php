@@ -35,7 +35,9 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
     Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
+
     Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');
     Route::post('/konseptor', [ConceptorController::class, 'store'])->name('konseptor.store');
     Route::post('/konseptor/{id}/update', [ConceptorController::class, 'update'])->name('konseptor.update');
+    Route::delete('/konseptor/{id}/delete', [ConceptorController::class, 'delete'])->name('konseptor.delete');
 });

@@ -22,18 +22,18 @@
             });
 
             // Delete Modal
-            $(document).on('show.bs.modal', '#deleteModalMobileLegends', function(event) {
+            $(document).on('show.bs.modal', '#deleteConceptorModal', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
-                const teamName = button.data('team-name');
+                const nama = button.data('nama');
                 const modal = $(this);
-                const deleteForm = $('#deleteFormMobileLegends');
+                const deleteForm = $('#deleteFormConceptor');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
-                deleteForm.attr('action', `/dashboard/admin/mobile-legends/${id}/delete`);
+                deleteForm.attr('action', `/lease-sentry/konseptor/${id}/delete`);
+                deleteModalBody.html(`Apakah anda yakin ingin menghapus konseptor ${nama}`);
 
-                modal.find('#teamName').val(teamName);
+                modal.find('#nama').val(nama);
 
             });
         });
@@ -70,7 +70,9 @@
                                         data-nama="{{ $conceptor->nama }}" data-no-whatsapp="{{ $conceptor->no_whatsapp }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
-                                    <span class="badge bg-danger rounded">
+                                    <span class="badge bg-danger rounded" data-bs-toggle="modal" data-bs-target="#deleteConceptorModal"
+                                    data-id={{ $conceptor->id }}
+                                    data-nama="{{ $conceptor->nama }}">
                                         <i class="bi bi-trash"></i>
                                     </span>
                                 </td>
@@ -142,6 +144,29 @@
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        {{-- Modal Hapus Data --}}
+        <div class="modal fade" id="deleteConceptorModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body" id="deleteModalBody"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light"
+                            data-bs-dismiss="modal">Close</button>
+                        <form method="post" id="deleteFormConceptor">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
