@@ -16,7 +16,8 @@ class ConceptorController extends Controller
 
     public function store(Request $request) {
         $data = $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'no_whatsapp' => 'required'
         ]);
 
         Conceptor::create($data);

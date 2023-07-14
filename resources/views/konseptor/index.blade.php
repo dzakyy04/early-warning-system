@@ -14,6 +14,7 @@
                         <tr class="table-primary">
                             <th class="text-nowrap text-center align-middle" scope="col">No</th>
                             <th class="text-nowrap text-center align-middle" scope="col">Nama Konseptor</th>
+                            <th class="text-nowrap text-center align-middle" scope="col">Nomor Whatsapp</th>
                             <th class="text-nowrap text-center align-middle" scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -22,6 +23,7 @@
                             <tr>
                                 <th class="text-center" scope="row">{{ $index + 1 }}</th>
                                 <td>{{ $conceptor->nama }}</td>
+                                <td>{{ $conceptor->no_whatsapp }}</td>
                                 <td class="text-nowrap text-center">
                                     <span class="badge bg-warning rounded mx-1">
                                         <i class="bi bi-pencil"></i>
@@ -53,6 +55,11 @@
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     placeholder="Masukkan nama" required>
                                 <label for="nama">Nama</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="no_whatsapp" name="no_whatsapp"
+                                    placeholder="Masukkan no_whatsapp" required>
+                                <label for="no_whatsapp">Nomor Whatsapp</label>
                             </div>
                         </div>
                         <div class="modal-footer">

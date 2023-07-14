@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('conceptors', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('no_whatsapp');
             $table->timestamps();
         });
     }

@@ -14,23 +14,29 @@ class ConceptorSeeder extends Seeder
     public function run(): void
     {
         Conceptor::create([
-            'nama' => 'Agung'
+            'nama' => 'Agung',
+            'no_whatsapp' => '085740319698',
         ]);
 
         Conceptor::create([
-            'nama' => 'Yanto'
+            'nama' => 'Yanto',
+            'no_whatsapp' => '085788888888',
+            
         ]);
 
         Conceptor::create([
-            'nama' => 'Wiyana'
+            'nama' => 'Wiyana',
+            'no_whatsapp' => '085711111111',
         ]);
 
         Conceptor::create([
-            'nama' => 'Abdul Rohman'
+            'nama' => 'Abdul Rohman',
+            'no_whatsapp' => '085722222222',
         ]);
 
         Conceptor::create([
-            'nama' => 'Maman'
+            'nama' => 'Maman',
+            'no_whatsapp' => '085733333333',
         ]);
     }
 }
