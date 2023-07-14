@@ -38,7 +38,7 @@ return new class extends Migration {
             $table->string('keterangan');
             $table->integer('usulan_sebelum_jatuh_tempo');
             $table->date('usulan_sewa_kembali');
-            $table->foreignId('konseptor_id')->constrained();
+            $table->foreignId('conceptor_id')->constrained();
             $table->string('nomor_laporan_satker');
             $table->date('tanggal_laporan_satker');
             $table->string('realisasi_rupiah');
