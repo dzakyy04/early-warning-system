@@ -59,6 +59,14 @@
                 <span>Konseptor</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(2) == 'hari-libur' ? '' : 'collapsed' }} "
+                href="{{ route('hari-libur.index') }}">
+                <i class="bi bi-calendar-week"></i>
+                <span>Hari libur</span>
+            </a>
+        </li>
     </ul>
 
 </aside>

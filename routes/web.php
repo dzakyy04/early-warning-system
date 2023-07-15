@@ -5,6 +5,7 @@ use App\Http\Controllers\ConceptorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\Products\Data2021Controller;
 use App\Models\Conceptor;
 
@@ -40,4 +41,6 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::post('/konseptor', [ConceptorController::class, 'store'])->name('konseptor.store');
     Route::post('/konseptor/{id}/update', [ConceptorController::class, 'update'])->name('konseptor.update');
     Route::delete('/konseptor/{id}/delete', [ConceptorController::class, 'delete'])->name('konseptor.delete');
+
+    Route::get('hari-libur', [HolidayController::class, 'index'])->name('hari-libur.index');
 });
