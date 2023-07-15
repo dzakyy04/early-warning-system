@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ConceptorSeeder::class,
-            DocumentSeeder::class
+            DocumentSeeder::class,
+            HolidaySeeder::class,
         ]);
     }
 }
