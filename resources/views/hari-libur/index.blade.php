@@ -30,7 +30,7 @@
                 const deleteModalBody = $('#deleteModalBody');
 
                 deleteForm.attr('action', '{{ route('hari-libur.delete', ':id') }}'.replace(':id', id));
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus ${nama}`);
+                deleteModalBody.html(`Apakah anda yakin ingin menghapus <strong>${nama}</strong>`);
 
                 modal.find('#nama').val(nama);
 
@@ -65,13 +65,13 @@
                                 </td>
                                 <td>{{ $holiday->holiday_name }}</td>
                                 <td class="text-nowrap text-center">
-                                    <span class="badge bg-warning rounded mx-1" data-bs-toggle="modal"
+                                    <span class="badge bg-warning rounded pointer me-1" data-bs-toggle="modal"
                                         data-bs-target="#editHolidayModal" data-id="{{ $holiday->id }}"
                                         data-tanggal="{{ $holiday->holiday_date }}"
                                         data-nama="{{ $holiday->holiday_name }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
-                                    <span class="badge bg-danger rounded" data-bs-toggle="modal"
+                                    <span class="badge bg-danger rounded pointer" data-bs-toggle="modal"
                                         data-bs-target="#deleteHolidayModal" data-id={{ $holiday->id }}
                                         data-nama="{{ $holiday->holiday_name }}">
                                         <i class="bi bi-trash"></i>
@@ -90,7 +90,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="conceptorModalLabel">Tambah Hari Libur</h1>
+                        <h5 class="modal-title" id="conceptorModalLabel">Tambah Hari Libur</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('hari-libur.store') }}" method="post">
@@ -121,7 +121,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="editModalTitle"></h5>
+                        <h5 class="modal-title" id="editModalTitle"></h5>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>

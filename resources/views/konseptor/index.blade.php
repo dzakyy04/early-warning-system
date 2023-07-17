@@ -31,10 +31,10 @@
                 const deleteModalBody = $('#deleteModalBody');
 
                 deleteForm.attr('action', `/lease-sentry/konseptor/${id}/delete`);
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus konseptor ${nama}`);
+                deleteModalBody.html(
+                    `Apakah anda yakin ingin menghapus <strong>${nama}</strong> sebagai konseptor`);
 
                 modal.find('#nama').val(nama);
-
             });
         });
     </script>
@@ -65,14 +65,14 @@
                                 <td>{{ $conceptor->nama }}</td>
                                 <td>{{ $conceptor->no_whatsapp }}</td>
                                 <td class="text-nowrap text-center">
-                                    <span class="badge bg-warning rounded mx-1" data-bs-toggle="modal"
+                                    <span class="badge bg-warning rounded pointer me-1" data-bs-toggle="modal"
                                         data-bs-target="#editConceptorModal" data-id="{{ $conceptor->id }}"
                                         data-nama="{{ $conceptor->nama }}" data-no-whatsapp="{{ $conceptor->no_whatsapp }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
-                                    <span class="badge bg-danger rounded" data-bs-toggle="modal" data-bs-target="#deleteConceptorModal"
-                                    data-id={{ $conceptor->id }}
-                                    data-nama="{{ $conceptor->nama }}">
+                                    <span class="badge bg-danger rounded pointer" data-bs-toggle="modal"
+                                        data-bs-target="#deleteConceptorModal" data-id={{ $conceptor->id }}
+                                        data-nama="{{ $conceptor->nama }}">
                                         <i class="bi bi-trash"></i>
                                     </span>
                                 </td>
@@ -89,7 +89,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="conceptorModalLabel">Tambah Konseptor</h1>
+                        <h5 class="modal-title" id="conceptorModalLabel">Tambah Konseptor</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('konseptor.store') }}" method="post">
@@ -120,8 +120,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="editModalTitle"></h5>
-
+                        <h5 class="modal-title" id="editModalTitle"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
@@ -159,12 +158,11 @@
                     </div>
                     <div class="modal-body" id="deleteModalBody"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light"
-                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <form method="post" id="deleteFormConceptor">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
                         </form>
                     </div>
                 </div>

@@ -1381,3 +1381,7 @@ h6 {
 .bg-secondary {
     background-color: #f7f7f7 !important;
 }
+
+span.pointer {
+    cursor: pointer;
+}
