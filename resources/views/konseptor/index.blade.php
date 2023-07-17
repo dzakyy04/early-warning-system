@@ -15,7 +15,7 @@
 
                 modal.find('#nama').val(nama);
                 modal.find('#no_whatsapp').val(noWhatsapp);
-                editForm.attr('action', `/lease-sentry/konseptor/${id}/update`);
+                editForm.attr('action', '{{ route('konseptor.update', ':id') }}'.replace(':id', id));
 
                 editModalTitle.html(`Edit Konseptor ${nama}`);
 
@@ -30,7 +30,7 @@
                 const deleteForm = $('#deleteFormConceptor');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteForm.attr('action', `/lease-sentry/konseptor/${id}/delete`);
+                deleteForm.attr('action', '{{ route('konseptor.delete', ':id') }}'.replace(':id', id));
                 deleteModalBody.html(
                     `Apakah anda yakin ingin menghapus <strong>${nama}</strong> sebagai konseptor`);
 
