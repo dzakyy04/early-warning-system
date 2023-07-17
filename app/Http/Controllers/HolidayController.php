@@ -47,4 +47,13 @@ class HolidayController extends Controller
 
         return back()->with('success', "Data berhasil diubah");
     }
+
+    public function delete($id)
+    {
+        $holiday = Holiday::findorFail($id);
+
+        $holiday->delete();
+
+        return back()->with('success', "Data berhasil dihapus");
+    }
 }

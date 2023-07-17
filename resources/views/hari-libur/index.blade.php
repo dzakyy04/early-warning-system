@@ -21,16 +21,16 @@
             });
 
             // Delete Modal
-            $(document).on('show.bs.modal', '#deleteConceptorModal', function(event) {
+            $(document).on('show.bs.modal', '#deleteHolidayModal', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
                 const nama = button.data('nama');
                 const modal = $(this);
-                const deleteForm = $('#deleteFormConceptor');
+                const deleteForm = $('#deleteFormHoliday');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteForm.attr('action', `/lease-sentry/konseptor/${id}/delete`);
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus konseptor ${nama}`);
+                deleteForm.attr('action', '{{ route('hari-libur.delete', ':id') }}'.replace(':id', id));
+                deleteModalBody.html(`Apakah anda yakin ingin menghapus ${nama}`);
 
                 modal.find('#nama').val(nama);
 
@@ -72,8 +72,8 @@
                                         <i class="bi bi-pencil"></i>
                                     </span>
                                     <span class="badge bg-danger rounded" data-bs-toggle="modal"
-                                        data-bs-target="#deleteConceptorModal" data-id={{ $holiday->id }}
-                                        data-nama="{{ $holiday->nama }}">
+                                        data-bs-target="#deleteHolidayModal" data-id={{ $holiday->id }}
+                                        data-nama="{{ $holiday->holiday_name }}">
                                         <i class="bi bi-trash"></i>
                                     </span>
                                 </td>
@@ -150,7 +150,7 @@
         </div>
 
         {{-- Modal Hapus Data --}}
-        <div class="modal fade" id="deleteConceptorModal">
+        <div class="modal fade" id="deleteHolidayModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -160,11 +160,11 @@
                     </div>
                     <div class="modal-body" id="deleteModalBody"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                        <form method="post" id="deleteFormConceptor">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <form method="post" id="deleteFormHoliday">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
                         </form>
                     </div>
                 </div>

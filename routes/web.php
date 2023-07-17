@@ -47,4 +47,5 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('hari-libur', [HolidayController::class, 'index'])->name('hari-libur.index');
     Route::post('hari-libur', [HolidayController::class, 'store'])->name('hari-libur.store');
     Route::post('hari-libur/{id}/update', [HolidayController::class, 'update'])->name('hari-libur.update');
+    Route::delete('hari-libur/{id}/delete', [HolidayController::class, 'delete'])->name('hari-libur.delete');
 });
