@@ -67,7 +67,8 @@
                                 <td class="text-nowrap text-center">
                                     <span class="badge bg-warning rounded mx-1" data-bs-toggle="modal"
                                         data-bs-target="#editConceptorModal" data-id="{{ $holiday->id }}"
-                                        data-nama="{{ $holiday->holiday_name }}" data-tanggal="{{ $holiday->holiday_name }}">
+                                        data-nama="{{ $holiday->holiday_name }}"
+                                        data-tanggal="{{ $holiday->holiday_name }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
                                     <span class="badge bg-danger rounded" data-bs-toggle="modal"
@@ -89,21 +90,21 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="conceptorModalLabel">Tambah Konseptor</h1>
+                        <h1 class="modal-title fs-5" id="conceptorModalLabel">Tambah Hari Libur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="{{ route('konseptor.store') }}" method="post">
+                    <form action="{{ route('hari-libur.store') }}" method="post">
                         @csrf
                         <div class="modal-body">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    placeholder="Masukkan nama" required>
-                                <label for="nama">Nama</label>
+                                <input type="date" class="form-control" id="holiday_date" name="holiday_date"
+                                    placeholder="Masukkan tanggal" required>
+                                <label for="holiday_date">Tanggal</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="no_whatsapp" name="no_whatsapp"
-                                    placeholder="Masukkan no_whatsapp" required>
-                                <label for="no_whatsapp">Nomor Whatsapp</label>
+                                <input type="text" class="form-control" id="holiday_name" name="holiday_name"
+                                    placeholder="Masukkan nama" required>
+                                <label for="holiday_name">Nama hari libur</label>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -131,12 +132,12 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     placeholder="Masukkan nama" required>
-                                <label for="nama">Nama</label>
+                                <label for="nama">Tanggal</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="no_whatsapp" name="no_whatsapp"
-                                    placeholders="Masukkan no_whatsapp" required>
-                                <label for="no_whatsapp">Nomor Whatsapp</label>
+                                <input type="text" class="form-control" id="holiday_date" name="holiday_date"
+                                    placeholder="Masukkan tanggal" required>
+                                <label for="holiday_date">Tanggal</label>
                             </div>
                         </div>
                         <div class="modal-footer">

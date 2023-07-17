@@ -43,4 +43,5 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::delete('/konseptor/{id}/delete', [ConceptorController::class, 'delete'])->name('konseptor.delete');
 
     Route::get('hari-libur', [HolidayController::class, 'index'])->name('hari-libur.index');
+    Route::post('hari-libur', [HolidayController::class, 'store'])->name('hari-libur.store');
 });

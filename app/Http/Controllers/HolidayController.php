@@ -21,4 +21,16 @@ class HolidayController extends Controller
 
         return view('hari-libur.index', compact('title', 'holidays'));
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'holiday_date' => 'required',
+            'holiday_name' => 'required'
+        ]);
+
+        Holiday::create($data);
+
+        return back()->with('success', "$request->holiday_date berhasil ditambahkan menjadi hari libur");
+    }
 }
