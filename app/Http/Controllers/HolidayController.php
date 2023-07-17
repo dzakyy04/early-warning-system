@@ -13,11 +13,11 @@ class HolidayController extends Controller
         $title = 'Hari libur';
         $holidays = Holiday::orderBy('holiday_date', 'asc')->get();
 
-        $holidays->map(
-            function ($item) {
-                $item->holiday_date = Carbon::createFromFormat('Y-m-d', $item->holiday_date)->locale('id')->isoFormat('D MMMM YYYY');
-            }
-        );
+        $holidays->map(function ($item) {
+            $formattedDate = Carbon::createFromFormat('Y-m-d', $item->holiday_date)->locale('id')->isoFormat('D MMMM YYYY');
+            $item->formatted_date = $formattedDate;
+            return $item;
+        });
 
         return view('hari-libur.index', compact('title', 'holidays'));
     }
@@ -32,5 +32,19 @@ class HolidayController extends Controller
         Holiday::create($data);
 
         return back()->with('success', "$request->holiday_date berhasil ditambahkan menjadi hari libur");
+    }
+
+    public function update($id, Request $request)
+    {
+        $data = $request->validate([
+            'holiday_date' => 'required',
+            'holiday_name' => 'required',
+        ]);
+
+        $holiday = Holiday::findorFail($id);
+
+        $holiday->update($data);
+
+        return back()->with('success', "Data berhasil diubah");
     }
 }

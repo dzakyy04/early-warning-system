@@ -4,21 +4,20 @@
     <script>
         $(document).ready(function() {
             // edit modal
-            $(document).on('show.bs.modal', '#editConceptorModal', function(event) {
+            $(document).on('show.bs.modal', '#editHolidayModal', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
                 const nama = button.data('nama');
                 const tanggal = button.data('tanggal');
                 const editModalTitle = $('#editModalTitle');
                 const modal = $(this);
-                const editForm = $('#editFormConceptor');
+                const editForm = $('#editFormHoliday');
 
-                modal.find('#nama').val(nama);
-                modal.find('#no_whatsapp').val(tanggal);
-                editForm.attr('action', `/lease-sentry/konseptor/${id}/update`);
+                modal.find('#holiday_date').val(tanggal);
+                modal.find('#holiday_name').val(nama);
+                editForm.attr('action', '{{ route('hari-libur.update', ':id') }}'.replace(':id', id));
 
-                editModalTitle.html(`Edit Konseptor ${nama}`);
-
+                editModalTitle.html(`Edit ${nama}`);
             });
 
             // Delete Modal
@@ -62,13 +61,14 @@
                         @foreach ($holidays as $index => $holiday)
                             <tr>
                                 <th class="text-center" scope="row">{{ $index + 1 }}</th>
-                                <td>{{ $holiday->holiday_date }}</td>
+                                <td>{{ $holiday->formatted_date }}
+                                </td>
                                 <td>{{ $holiday->holiday_name }}</td>
                                 <td class="text-nowrap text-center">
                                     <span class="badge bg-warning rounded mx-1" data-bs-toggle="modal"
-                                        data-bs-target="#editConceptorModal" data-id="{{ $holiday->id }}"
-                                        data-nama="{{ $holiday->holiday_name }}"
-                                        data-tanggal="{{ $holiday->holiday_name }}">
+                                        data-bs-target="#editHolidayModal" data-id="{{ $holiday->id }}"
+                                        data-tanggal="{{ $holiday->holiday_date }}"
+                                        data-nama="{{ $holiday->holiday_name }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
                                     <span class="badge bg-danger rounded" data-bs-toggle="modal"
@@ -117,7 +117,7 @@
         </div>
 
         {{-- Modal Edit Data --}}
-        <div class="modal fade" id="editConceptorModal">
+        <div class="modal fade" id="editHolidayModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -126,18 +126,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <form method="post" id="editFormConceptor">
+                    <form method="post" id="editFormHoliday">
                         @csrf
                         <div class="modal-body">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    placeholder="Masukkan nama" required>
-                                <label for="nama">Tanggal</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="holiday_date" name="holiday_date"
+                                <input type="date" class="form-control" id="holiday_date" name="holiday_date"
                                     placeholder="Masukkan tanggal" required>
                                 <label for="holiday_date">Tanggal</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="holiday_name" name="holiday_name"
+                                    placeholder="Masukkan nama" required>
+                                <label for="holiday_name">Nama hari libur</label>
                             </div>
                         </div>
                         <div class="modal-footer">
