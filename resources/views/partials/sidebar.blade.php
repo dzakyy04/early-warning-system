@@ -11,8 +11,8 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Produk Pelayanan</span><i
+            <a class="nav-link {{ Request::segment(2) == 'dokumen' ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Dokumen</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('data2021.index') }}">
+                    <a href="{{ route('dokumen2021.index') }}">
                         <i class="bi bi-circle"></i><span>2021</span>
                     </a>
                 </li>
@@ -42,14 +42,6 @@
                     </a>
                 </li>
             </ul>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ Request::segment(2) == 'dokumen' ? '' : 'collapsed' }} "
-                href="{{ route('dokumen.index') }}">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Dokumen</span>
-            </a>
         </li>
 
         <li class="nav-item">

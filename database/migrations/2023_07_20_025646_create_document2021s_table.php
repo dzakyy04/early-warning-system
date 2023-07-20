@@ -4,20 +4,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('data2021s', function (Blueprint $table) {
+        Schema::create('document2021s', function (Blueprint $table) {
             $table->id();
             $table->string('pejabat_pemohon');
-            $table->string('satker_lokasi_bmn');
+            $table->string('satker');
             $table->string('nomor_surat_masuk');
             $table->date('tanggal_surat_masuk');
+            $table->date('tanggal_surat_diterima');
             $table->string('hal_surat_masuk');
             $table->date('tanggal_penerimaan_dokumen_lengkap');
+            $table->string('nomor_nd_permohonan_penilaian');
+            $table->date('tanggal_nd_permohonan_penilaian');
             $table->string('nomor_ndr_penilaian');
             $table->date('tanggal_ndr_diterima_penilaian');
             $table->string('jenis_persetujuan');
@@ -28,10 +32,11 @@ return new class extends Migration {
             $table->string('link_file');
             $table->string('luas_tanah_keseluruhan');
             $table->string('nilai_tanah_keseluruhan');
-            $table->string('harga_perolehan_nilai_bmn');
+            $table->string('nilai_proporsional_harga_perolehan_nilai_bmn');
             $table->string('nilai_buku_nilai_bmn');
             $table->string('nilai_limit_nilai_bmn');
-            $table->integer('periode_sewa');
+            $table->string('nilai_persetujuan');
+            $table->integer('periode_sewa')->nullable();
             $table->string('penyewa');
             $table->string('total_nilai_sewa');
             $table->string('sop');
@@ -53,6 +58,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('data2021s');
+        Schema::dropIfExists('document2021s');
     }
 };

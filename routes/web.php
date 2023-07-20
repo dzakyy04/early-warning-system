@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConceptorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Document\Document2021Controller;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\Products\Data2021Controller;
@@ -31,11 +32,11 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dokumen', [DocumentController::class, 'index'])->name('dokumen.index');
-    Route::get('/dokumen/create', [DocumentController::class, 'create'])->name('dokumen.create');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/products/2021', [Data2021Controller::class, 'index'])->name('data2021.index');
-    Route::get('/products/2021/create', [Data2021Controller::class, 'create'])->name('data2021.create');
+
+    // Dokumen
+    Route::get('/dokumen/2021', [Document2021Controller::class, 'index'])->name('dokumen2021.index');
+    Route::get('/dokumen/2021/create', [Document2021Controller::class, 'create'])->name('dokumen2021.create');
 
     // Konseptor
     Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');

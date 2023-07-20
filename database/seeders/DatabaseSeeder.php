@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use Database\Seeders\Document\Document2021Seeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ConceptorSeeder::class,
             DocumentSeeder::class,
             HolidaySeeder::class,
+            Document2021Seeder::class,
         ]);
     }
 }
