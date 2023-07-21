@@ -52,7 +52,7 @@ class Document2021Factory extends Factory
             'realisasi_rupiah' => $this->faker->randomNumber(9),
             'realisasi_ntpn' => $this->faker->unique()->numerify('#####'),
             'status_masa_aktif' => $this->faker->randomElement(['Aktif', 'Nonaktif', 'Tenggang']),
-            'status_progress' => $this->faker->randomElement(['Tahap 1', 'Tahap 2', 'Tahap 3', 'Selesai']),
+            'status_progress' => $this->faker->randomElement(['Diproses', 'Selesai']),
             'progress_masuk' => rand(0, 3),
             'progress_dinilai' => rand(0, 15),
             'progress_selesai' => rand(0, 4),

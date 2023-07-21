@@ -18,7 +18,8 @@
                             <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Tanggal Surat Diterima</th>
                             <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Jenis Persetujuan</th>
                             <th class="text-nowrap text-center align-middle" scope="col" colspan="2">ND Permohonan Penilaian</th>
-                            <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Status</th>
+                            <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Total Hari</th>
+                            <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Status Progress</th>
                             <th class="text-nowrap text-center align-middle" scope="col" rowspan="2">Aksi</th>
                         </tr>
                         <tr class="table-primary">
@@ -39,9 +40,10 @@
                                 <td>{{ $document->jenis_persetujuan }}</td>
                                 <td>{{ $document->nomor_nd_permohonan_penilaian }}</td>
                                 <td>{{ $document->tanggal_nd_permohonan_penilaian }}</td>
+                                <td>{{ $document->total_hari }}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-danger rounded-pill px-2">
-                                        Sebentar lagi
+                                    <span class="badge {{ $document->status_progress == 'Diproses' ? 'bg-warning' : 'bg-success'}} rounded-pill px-2">
+                                        {{ $document->status_progress }}
                                     </span>
                                 </td>
                                 <td class="text-nowrap text-center">

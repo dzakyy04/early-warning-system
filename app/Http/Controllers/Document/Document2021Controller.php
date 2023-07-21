@@ -13,12 +13,15 @@ class Document2021Controller extends Controller
     {
         $title = 'Dokumen 2021';
         $documents = Document2021::get();
-        // $documents->map(function($doc) {
-        //     $doc->total_hari = $doc->progress_masuk + $doc->progress_dinilai + $doc->progress_selesai;
-
-        //     $doc->update(['total_hari' => $doc->total_hari]);
-        //     return $doc;
-        // });
+        $documents->map(function($document){
+            if($document->jenis_persetujuan == 'Sewa'){
+                $document->status_progress <= 19 ? 'Diproses' : 'Selesai';
+            } else {
+                $document->status_progress <= 22 ? 'Diproses' : 'Selesai';
+            } 
+            return $document;
+        });
+        $documents->each->save();
         return view('dokumen.dokumen_2021.index', compact('documents', 'title'));
     }
 
