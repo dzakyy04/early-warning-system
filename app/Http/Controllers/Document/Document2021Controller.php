@@ -22,4 +22,13 @@ class Document2021Controller extends Controller
         $title = 'Tambah Dokumen';
         return view('dokumen.dokumen_2021.create', compact('title', 'conceptors'));
     }
+
+    public function edit($id)
+    {
+        $title = 'Edit Dokumen';
+        $dokumen = Document2021::findOrFail($id);
+        $conceptors = Conceptor::get();
+        return view('dokumen.dokumen_2021.edit', compact('title', 'dokumen', 'conceptors'));
+
+    }
 }

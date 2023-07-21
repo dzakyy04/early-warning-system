@@ -45,15 +45,15 @@
                                     </span>
                                 </td>
                                 <td class="text-nowrap text-center">
-                                    <span class="badge bg-primary rounded">
+                                    <a href="" class="badge bg-primary rounded pointer">
                                         <i class="bi bi-eye"></i>
-                                    </span>
-                                    <span class="badge bg-warning rounded mx-1">
+                                    </a>
+                                    <a href="{{ route('dokumen2021.edit', $document->id)}}" class="badge bg-warning rounded pointer mx-1">
                                         <i class="bi bi-pencil"></i>
-                                    </span>
-                                    <span class="badge bg-danger rounded">
+                                    </a>
+                                    <a href="" class="badge bg-danger rounded pointer">
                                         <i class="bi bi-trash"></i>
-                                    </span>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
