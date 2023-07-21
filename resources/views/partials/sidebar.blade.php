@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="components-breadcrumbs.html">
+                    <a href="{{ route('dokumen2020.index')}}">
                         <i class="bi bi-circle"></i><span>2020</span>
                     </a>
                 </li>

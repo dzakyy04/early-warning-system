@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers\Document;
+
+use App\Http\Controllers\Controller;
+use App\Models\Conceptor;
+use App\Models\Document\Document2020;
+use Illuminate\Http\Request;
+
+class Document2020Controller extends Controller
+{
+    public function index()
+    {
+        $title = 'Dokumen 2020';
+        $documents = Document2020::get();
+        $documents->map(function($document){
+            if($document->jenis_persetujuan == 'Sewa'){
+                $document->status_progress <= 19 ? 'Diproses' : 'Selesai';
+            } else {
+                $document->status_progress <= 22 ? 'Diproses' : 'Selesai';
+            } 
+            return $document;
+        });
+        $documents->each->save();
+        return view('dokumen.dokumen_2020.index', compact('documents', 'title'));
+    }
+
+    public function create()
+    {
+        $conceptors = Conceptor::get();
+        $title = 'Tambah Dokumen';
+        return view('dokumen.dokumen_2020.create', compact('title', 'conceptors'));
+    }
+
+    public function edit($id)
+    {
+        $title = 'Edit Dokumen';
+        $dokumen = Document2020::findOrFail($id);
+        $conceptors = Conceptor::get();
+        return view('dokumen.dokumen_2020.edit', compact('title', 'dokumen', 'conceptors'));
+    }
+}

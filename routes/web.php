@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ConceptorController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Document\Document2021Controller;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\HolidayController;
-use App\Http\Controllers\Products\Data2021Controller;
 use App\Models\Conceptor;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ConceptorController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Products\Data2021Controller;
+use App\Http\Controllers\Document\Document2020Controller;
+use App\Http\Controllers\Document\Document2021Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,12 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // Dokumen
+    // Dokumen2020
+    Route::get('/dokumen/2020', [Document2020Controller::class, 'index'])->name('dokumen2020.index');
+    Route::get('/dokumen/2020/create', [Document2020Controller::class, 'create'])->name('dokumen2020.create');
+    Route::get('/dokumen/2020/{id}/edit', [Document2020Controller::class, 'edit'])->name('dokumen2020.edit');
+
+    // Dokumen2021
     Route::get('/dokumen/2021', [Document2021Controller::class, 'index'])->name('dokumen2021.index');
     Route::get('/dokumen/2021/create', [Document2021Controller::class, 'create'])->name('dokumen2021.create');
     Route::get('/dokumen/2021/{id}/edit', [Document2021Controller::class, 'edit'])->name('dokumen2021.edit');
