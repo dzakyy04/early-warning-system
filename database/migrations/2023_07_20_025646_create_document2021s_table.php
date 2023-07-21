@@ -48,7 +48,12 @@ return new class extends Migration
             $table->date('tanggal_laporan_satker');
             $table->string('realisasi_rupiah');
             $table->string('realisasi_ntpn');
-            $table->string('status');
+            $table->string('status_masa_aktif');
+            $table->integer('progress_masuk')->default(0);
+            $table->integer('progress_dinilai')->default(0);
+            $table->integer('progress_selesai')->default(0);
+            $table->integer('total_hari')->virtualAs('progress_masuk + progress_dinilai + progress_selesai');
+            $table->string('status_progress');
             $table->timestamps();
         });
     }

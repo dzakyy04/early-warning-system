@@ -13,6 +13,12 @@ class Document2021Controller extends Controller
     {
         $title = 'Dokumen 2021';
         $documents = Document2021::get();
+        // $documents->map(function($doc) {
+        //     $doc->total_hari = $doc->progress_masuk + $doc->progress_dinilai + $doc->progress_selesai;
+
+        //     $doc->update(['total_hari' => $doc->total_hari]);
+        //     return $doc;
+        // });
         return view('dokumen.dokumen_2021.index', compact('documents', 'title'));
     }
 
@@ -29,6 +35,5 @@ class Document2021Controller extends Controller
         $dokumen = Document2021::findOrFail($id);
         $conceptors = Conceptor::get();
         return view('dokumen.dokumen_2021.edit', compact('title', 'dokumen', 'conceptors'));
-
     }
 }

@@ -51,7 +51,11 @@ class Document2021Factory extends Factory
             'tanggal_laporan_satker' => $this->faker->date(),
             'realisasi_rupiah' => $this->faker->randomNumber(9),
             'realisasi_ntpn' => $this->faker->unique()->numerify('#####'),
-            'status' => $this->faker->randomElement(['Pending', 'Completed']),
+            'status_masa_aktif' => $this->faker->randomElement(['Aktif', 'Nonaktif', 'Tenggang']),
+            'status_progress' => $this->faker->randomElement(['Tahap 1', 'Tahap 2', 'Tahap 3', 'Selesai']),
+            'progress_masuk' => rand(0, 3),
+            'progress_dinilai' => rand(0, 15),
+            'progress_selesai' => rand(0, 4),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
