@@ -19,6 +19,7 @@ class Document2020Factory extends Factory
         return [
             'pejabat_pemohon' => $this->faker->name,
             'satker' => $this->faker->company,
+            'nomor_whatsapp_satker' => $this->faker->randomElement(['082269324126', '089660168080', '081368798772']),
             'nomor_surat_masuk' => $this->faker->unique()->numerify('#####'),
             'tanggal_surat_masuk' => $this->faker->date(),
             'tanggal_surat_diterima' => $this->faker->date(),
@@ -53,9 +54,11 @@ class Document2020Factory extends Factory
             'realisasi_ntpn' => $this->faker->unique()->numerify('#####'),
             'status_masa_aktif' => $this->faker->randomElement(['Aktif', 'Nonaktif', 'Tenggang']),
             'status_progress' => $this->faker->randomElement(['Diproses', 'Selesai']),
-            'progress_masuk' => rand(0, 3),
-            'progress_dinilai' => rand(0, 15),
-            'progress_selesai' => rand(0, 4),
+            'progress' => json_encode([
+                'progress_masuk' => ['value' => rand(0, 3), 'status' => $this->faker->boolean()],
+                'progress_dinilai' => ['value' => rand(0, 15), 'status' => $this->faker->boolean()],
+                'progress_selesai' => ['value' => rand(0, 4), 'status' => $this->faker->boolean()],
+            ]),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];

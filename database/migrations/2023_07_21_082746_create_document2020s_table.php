@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('pejabat_pemohon');
             $table->string('satker');
+            $table->string('nomor_whatsapp_satker');
             $table->string('nomor_surat_masuk');
             $table->date('tanggal_surat_masuk');
             $table->date('tanggal_surat_diterima');
@@ -49,10 +50,16 @@ return new class extends Migration
             $table->string('realisasi_rupiah');
             $table->string('realisasi_ntpn');
             $table->string('status_masa_aktif');
-            $table->integer('progress_masuk')->default(0);
-            $table->integer('progress_dinilai')->default(0);
-            $table->integer('progress_selesai')->default(0);
-            $table->integer('total_hari')->virtualAs('progress_masuk + progress_dinilai + progress_selesai');
+            $table->json('progress')->default(json_encode([
+                'progress_masuk' => ['value' => 0, 'status' => false],
+                'progress_dinilai' => ['value' => 0, 'status' => false],
+                'progress_selesai' => ['value' => 0, 'status' => false],
+            ]));
+            $table->integer('total_hari')->virtualAs(
+                "JSON_UNQUOTE(JSON_EXTRACT(progress, '$.progress_masuk.value')) +
+                JSON_UNQUOTE(JSON_EXTRACT(progress, '$.progress_dinilai.value')) +
+                JSON_UNQUOTE(JSON_EXTRACT(progress, '$.progress_selesai.value'))"
+            );
             $table->string('status_progress');
             $table->timestamps();
         });
