@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/css/toastr.min.css') }}">
+@endpush
+
 @push('js')
+    <script src="{{ asset('js/toastr-init.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/js/toastr.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             // edit modal
@@ -38,6 +44,28 @@
             });
         });
     </script>
+    <script>
+        @if (session()->has('success'))
+            toastr.success('{{ session('success') }}', 'Success', {
+                timeOut: 5e3,
+                closeButton: !0,
+                debug: !1,
+                newestOnTop: !0,
+                progressBar: !0,
+                positionClass: "toast-top-right",
+                preventDuplicates: !0,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut",
+                tapToDismiss: !1
+            })
+        @endif
+    </script>
 @endpush
 
 @section('content')
@@ -67,7 +95,8 @@
                                 <td class="text-nowrap text-center">
                                     <span class="badge bg-warning rounded pointer me-1" data-bs-toggle="modal"
                                         data-bs-target="#editConceptorModal" data-id="{{ $conceptor->id }}"
-                                        data-nama="{{ $conceptor->nama }}" data-no-whatsapp="{{ $conceptor->no_whatsapp }}">
+                                        data-nama="{{ $conceptor->nama }}"
+                                        data-no-whatsapp="{{ $conceptor->no_whatsapp }}">
                                         <i class="bi bi-pencil"></i>
                                     </span>
                                     <span class="badge bg-danger rounded pointer" data-bs-toggle="modal"

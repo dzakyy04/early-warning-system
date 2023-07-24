@@ -24,7 +24,7 @@ class ConceptorController extends Controller
 
         Conceptor::create($data);
 
-        return back()->with('success', "$request->name berhasil ditambahkan menjadi konseptor");
+        return back()->with('success', "$request->nama berhasil ditambahkan menjadi konseptor");
     }
 
     public function update($id, Request $request)
@@ -37,7 +37,7 @@ class ConceptorController extends Controller
         $conceptor = Conceptor::findorFail($id);
         $conceptor->update($data);
 
-        return back()->with('success', "$request->name berhasil diubah");
+        return back()->with('success', "Data berhasil diubah");
     }
 
     public function delete($id)
