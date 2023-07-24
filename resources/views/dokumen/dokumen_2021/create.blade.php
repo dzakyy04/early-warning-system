@@ -7,8 +7,8 @@
                 <div class="steps">
                     <div class="steps-header">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="40"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="40" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="steps-body">
@@ -44,12 +44,12 @@
                     <h5 class="card-title">Masukkan data surat masuk</h5>
                     <div class="col-md-12">
                         <div class="row">
-                            <form method="post" action="" class="row">
+                            <form method="post" action="{{ route('dokumen2021.store') }}" class="row">
                                 @csrf
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control @error('satker') is-invalid @enderror"
-                                            name="satker" id="floatingName" placeholder=" " value="{{ old('satker')}}">
+                                            name="satker" placeholder=" " value="{{ old('satker') }}">
                                         <label for="floatingName">Satker</label>
                                         @error('satker')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -58,9 +58,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
+                                        <input type="text" class="form-control @error('nomor_whatsapp_satker') is-invalid @enderror"
+                                            name="nomor_whatsapp_satker" placeholder=" " value="{{ old('nomor_whatsapp_satker') }}">
+                                        <label for="floatingName">Nomor Whatsapp Satker</label>
+                                        @error('nomor_whatsapp_satker')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
                                         <input type="text"
                                             class="form-control @error('nomor_surat_masuk') is-invalid @enderror"
-                                            name="nomor_surat_masuk" id="floatingName" placeholder=" " value="{{ old('nomor_surat_masuk')}}">
+                                            name="nomor_surat_masuk" placeholder=" "
+                                            value="{{ old('nomor_surat_masuk') }}">
                                         <label for="floatingName">Nomor Surat Masuk</label>
                                         @error('nomor_surat_masuk')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -71,7 +82,8 @@
                                     <div class="form-floating mb-3">
                                         <input type="date"
                                             class="form-control @error('tanggal_surat_masuk') is-invalid @enderror"
-                                            name="tanggal_surat_masuk" id="floatingName" placeholder=" " value="{{ old('tanggal_surat_masuk')}}">
+                                            name="tanggal_surat_masuk" placeholder=" "
+                                            value="{{ old('tanggal_surat_masuk') }}">
                                         <label for="floatingName">Tanggal Surat Masuk</label>
                                         @error('tanggal_surat_masuk')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -82,7 +94,8 @@
                                     <div class="form-floating mb-3">
                                         <input type="date"
                                             class="form-control @error('tanggal_surat_diterima') is-invalid @enderror"
-                                            name="tanggal_surat_diterima" id="floatingName" placeholder=" " value="{{ old('tanggal_surat_diterima')}}">
+                                            name="tanggal_surat_diterima" placeholder=" "
+                                            value="{{ old('tanggal_surat_diterima') }}">
                                         <label for="floatingName">Tanggal Surat Diterima</label>
                                         @error('tanggal_surat_diterima')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -106,9 +119,26 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
+                                        <select class="form-select @error('conceptor_id') is-invalid @enderror"
+                                            name="conceptor_id" id="floatingSelect" aria-label="State"
+                                            value="{{ old('conceptor_id') }}">
+                                            <option selected disabled>Pilih Konseptor</option>
+                                            @foreach ($conceptors as $conceptor)
+                                                <option value="{{ $conceptor->id }}">{{ $conceptor->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="floatingSelect">Konseptor</label>
+                                        @error('conceptor_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
                                         <input type="text"
                                             class="form-control @error('nomor_nd_permohonan_penilaian') is-invalid @enderror"
-                                            name="nomor_nd_permohonan_penilaian" id="floatingName" placeholder=" " value="{{ old('nomor_nd_permohonan_penilaian')}}">
+                                            name="nomor_nd_permohonan_penilaian" placeholder=" "
+                                            value="{{ old('nomor_nd_permohonan_penilaian') }}">
                                         <label for="floatingName">Nomor ND Permohonan Penilaian</label>
                                         @error('nomor_nd_permohonan_penilaian')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -119,24 +149,10 @@
                                     <div class="form-floating mb-3">
                                         <input type="date"
                                             class="form-control @error('tanggal_nd_permohonan_penilaian') is-invalid @enderror"
-                                            name="tanggal_nd_permohonan_penilaian" id="floatingName" placeholder=" " value="{{ old('tanggal_nd_permohonan_penilaian')}}">
+                                            name="tanggal_nd_permohonan_penilaian" placeholder=" "
+                                            value="{{ old('tanggal_nd_permohonan_penilaian') }}">
                                         <label for="floatingName">Tanggal ND Permohonan Penilaian</label>
                                         @error('tanggal_nd_permohonan_penilaian')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select @error('conceptor_id') is-invalid @enderror"
-                                            name="conceptor_id" id="floatingSelect" aria-label="State" value="{{ old('conceptor_id')}}">
-                                            <option selected disabled>Pilih Konseptor</option>
-                                            @foreach ($conceptors as $conceptor)
-                                                <option value="{{ $conceptor->id }}">{{ $conceptor->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label for="floatingSelect">Konseptor</label>
-                                        @error('conceptor_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

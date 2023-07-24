@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('tanggal_surat_masuk');
             $table->date('tanggal_surat_diterima');
             $table->string('hal_surat_masuk')->nullable();
-            $table->date('tanggal_penerimaan_dokumen_lengkap');
+            $table->date('tanggal_penerimaan_dokumen_lengkap')->nullable();
             $table->string('nomor_nd_permohonan_penilaian')->nullable();
             $table->date('tanggal_nd_permohonan_penilaian')->nullable();
             $table->string('nomor_ndr_penilaian')->nullable();
@@ -49,7 +49,7 @@ return new class extends Migration
             $table->date('tanggal_laporan_satker')->nullable();
             $table->string('realisasi_rupiah')->nullable();
             $table->string('realisasi_ntpn')->nullable();
-            $table->string('status_masa_aktif');
+            $table->string('status_masa_aktif')->nullable();
             $table->json('progress')->default(json_encode([
                 'progress_masuk' => ['day' => 0, 'isCompleted' => false],
                 'progress_dinilai' => ['day' => 0, 'isCompleted' => false],
