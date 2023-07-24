@@ -7,36 +7,27 @@
                 <div class="steps">
                     <div class="steps-header">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 33.3%" aria-valuenow="40"
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="40"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="steps-body">
                         {{-- Dokumen masuk --}}
-                        <div class="step step-completed" data-bs-toggle="modal" data-bs-target="#stepOne">
-                            <span class="step-indicator">
-                                <i class="bi bi-check-lg"></i>
-                            </span>
+                        <div class="step step-active">
                             <span class="step-icon">
                                 <i class="bi bi-1-circle fs-3"></i>
                             </span>
                             <div class="mt-4">Dokumen masuk</div>
                         </div>
                         {{-- Dokumen dinilai --}}
-                        <div class="step step-active" data-bs-toggle="modal" data-bs-target="#stepTwo">
-                            <span class="step-indicator">
-                                <i class="bi bi-check-lg"></i>
-                            </span>
+                        <div class="step">
                             <span class="step-icon">
                                 <i class="bi bi-2-circle fs-3"></i>
                             </span>
                             <div class="mt-4">Dokumen dinilai</div>
                         </div>
                         {{-- Dokumen selesai --}}
-                        <div class="step" data-bs-toggle="modal" data-bs-target="#stepThree">
-                            <span class="step-indicator">
-                                <i class="bi bi-check-lg"></i>
-                            </span>
+                        <div class="step">
                             <span class="step-icon">
                                 <i class="bi bi-3-circle fs-3"></i>
                             </span>

@@ -5,8 +5,10 @@
         <div class="card">
             <div class="card-body" style="overflow-x: scroll">
                 <h5 class="card-title">Dokumen 2020</h5>
-                <a href="{{ route('dokumen2020.create') }}" class="btn btn-primary mb-3"><i class="bi bi-plus me-1"></i> Tambah
-                    Dokumen</a>
+                @if (Auth::user()->role == 'Admin Pkn' || Auth::user()->role == 'Super Admin')
+                    <a href="{{ route('dokumen2020.create') }}" class="btn btn-primary mb-3"><i class="bi bi-plus me-1"></i>
+                        Tambah Dokumen</a>
+                @endif
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr class="table-primary">

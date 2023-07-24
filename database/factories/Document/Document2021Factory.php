@@ -55,9 +55,9 @@ class Document2021Factory extends Factory
             'status_masa_aktif' => $this->faker->randomElement(['Aktif', 'Nonaktif', 'Tenggang']),
             'status_progress' => $this->faker->randomElement(['Diproses', 'Selesai']),
             'progress' => json_encode([
-                'progress_masuk' => ['value' => rand(0,3), 'status' => $this->faker->boolean()],
-                'progress_dinilai' => ['value' => rand(0,15), 'status' => $this->faker->boolean()],
-                'progress_selesai' => ['value' => rand(0,4), 'status' => $this->faker->boolean()],
+                'progress_masuk' => ['day' => rand(0,3), 'isCompleted' => $this->faker->boolean()],
+                'progress_dinilai' => ['day' => rand(0,15), 'isCompleted' => $this->faker->boolean()],
+                'progress_selesai' => ['day' => rand(0,4), 'isCompleted' => $this->faker->boolean()],
             ]),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
