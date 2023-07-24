@@ -1386,3 +1386,8 @@ h6 {
 span.pointer {
     cursor: pointer;
 }
+
+/* Add border to each row in the table */
+.table-bordered tbody tr {
+    border: 1px solid #dee2e6;
+}

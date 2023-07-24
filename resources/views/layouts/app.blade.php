@@ -26,6 +26,7 @@
     <link href="{{ asset('vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    @stack('css')
 </head>
 
 <body>
