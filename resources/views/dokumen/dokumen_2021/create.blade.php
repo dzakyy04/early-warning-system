@@ -13,7 +13,7 @@
                     </div>
                     <div class="steps-body">
                         {{-- Dokumen masuk --}}
-                        <div class="step step-active">
+                        <div class="step">
                             <span class="step-icon">
                                 <i class="bi bi-1-circle fs-3"></i>
                             </span>
@@ -50,7 +50,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control @error('satker') is-invalid @enderror"
                                             name="satker" placeholder=" " value="{{ old('satker') }}">
-                                        <label for="floatingName">Satker</label>
+                                        <label>Satker</label>
                                         @error('satker')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -58,9 +58,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control @error('nomor_whatsapp_satker') is-invalid @enderror"
-                                            name="nomor_whatsapp_satker" placeholder=" " value="{{ old('nomor_whatsapp_satker') }}">
-                                        <label for="floatingName">Nomor Whatsapp Satker</label>
+                                        <input type="text"
+                                            class="form-control @error('nomor_whatsapp_satker') is-invalid @enderror"
+                                            name="nomor_whatsapp_satker" placeholder=" "
+                                            value="{{ old('nomor_whatsapp_satker') }}">
+                                        <label>Nomor Whatsapp Satker</label>
                                         @error('nomor_whatsapp_satker')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -70,9 +72,8 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"
                                             class="form-control @error('nomor_surat_masuk') is-invalid @enderror"
-                                            name="nomor_surat_masuk" placeholder=" "
-                                            value="{{ old('nomor_surat_masuk') }}">
-                                        <label for="floatingName">Nomor Surat Masuk</label>
+                                            name="nomor_surat_masuk" placeholder=" " value="{{ old('nomor_surat_masuk') }}">
+                                        <label>Nomor Surat Masuk</label>
                                         @error('nomor_surat_masuk')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -84,7 +85,7 @@
                                             class="form-control @error('tanggal_surat_masuk') is-invalid @enderror"
                                             name="tanggal_surat_masuk" placeholder=" "
                                             value="{{ old('tanggal_surat_masuk') }}">
-                                        <label for="floatingName">Tanggal Surat Masuk</label>
+                                        <label>Tanggal Surat Masuk</label>
                                         @error('tanggal_surat_masuk')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -96,7 +97,7 @@
                                             class="form-control @error('tanggal_surat_diterima') is-invalid @enderror"
                                             name="tanggal_surat_diterima" placeholder=" "
                                             value="{{ old('tanggal_surat_diterima') }}">
-                                        <label for="floatingName">Tanggal Surat Diterima</label>
+                                        <label>Tanggal Surat Diterima</label>
                                         @error('tanggal_surat_diterima')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -106,7 +107,7 @@
                                     <div class="form-floating mb-3">
                                         <select class="form-select @error('jenis_persetujuan') is-invalid @enderror"
                                             name="jenis_persetujuan" id="floatingSelect" aria-label="State">
-                                            <option selected>Pilih Jenis Persetujuan</option>
+                                            <option selected disabled>Pilih Jenis Persetujuan</option>
                                             <option value="sewa">Sewa</option>
                                             <option value="penjualan">Penjualan</option>
                                             <option value="penghapusan">Penghapusan</option>
@@ -139,7 +140,7 @@
                                             class="form-control @error('nomor_nd_permohonan_penilaian') is-invalid @enderror"
                                             name="nomor_nd_permohonan_penilaian" placeholder=" "
                                             value="{{ old('nomor_nd_permohonan_penilaian') }}">
-                                        <label for="floatingName">Nomor ND Permohonan Penilaian</label>
+                                        <label>Nomor ND Permohonan Penilaian</label>
                                         @error('nomor_nd_permohonan_penilaian')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -151,7 +152,7 @@
                                             class="form-control @error('tanggal_nd_permohonan_penilaian') is-invalid @enderror"
                                             name="tanggal_nd_permohonan_penilaian" placeholder=" "
                                             value="{{ old('tanggal_nd_permohonan_penilaian') }}">
-                                        <label for="floatingName">Tanggal ND Permohonan Penilaian</label>
+                                        <label>Tanggal ND Permohonan Penilaian</label>
                                         @error('tanggal_nd_permohonan_penilaian')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
