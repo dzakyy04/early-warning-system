@@ -13,15 +13,6 @@ class Document2020Controller extends Controller
     {
         $title = 'Dokumen 2020';
         $documents = Document2020::get();
-        $documents->map(function($document){
-            if($document->jenis_persetujuan == 'Sewa'){
-                $document->status_progress <= 19 ? 'Diproses' : 'Selesai';
-            } else {
-                $document->status_progress <= 22 ? 'Diproses' : 'Selesai';
-            } 
-            return $document;
-        });
-        $documents->each->save();
         return view('dokumen.dokumen_2020.index', compact('documents', 'title'));
     }
 
@@ -35,8 +26,9 @@ class Document2020Controller extends Controller
     public function edit($id)
     {
         $title = 'Edit Dokumen';
-        $dokumen = Document2020::findOrFail($id);
+        $document = Document2020::findOrFail($id);
+        $progress = json_decode($document->progress);
         $conceptors = Conceptor::get();
-        return view('dokumen.dokumen_2020.edit', compact('title', 'dokumen', 'conceptors'));
+        return view('dokumen.dokumen_2020.edit', compact('title', 'document', 'progress', 'conceptors'));
     }
 }
