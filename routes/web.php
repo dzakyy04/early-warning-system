@@ -45,6 +45,7 @@ Route::middleware('auth')->prefix('lease-sentry')->group(function () {
     Route::get('/dokumen/2021/create', [Document2021Controller::class, 'create'])->name('dokumen2021.create');
     Route::post('/dokumen/2021/create', [Document2021Controller::class, 'store'])->name('dokumen2021.store');
     Route::get('/dokumen/2021/{id}/edit', [Document2021Controller::class, 'edit'])->name('dokumen2021.edit');
+    Route::post('/dokumen/2021/{id}/edit', [Document2021Controller::class, 'update'])->name('dokumen2021.update');
 
     // Konseptor
     Route::get('/konseptor', [ConceptorController::class, 'index'])->name('konseptor.index');
