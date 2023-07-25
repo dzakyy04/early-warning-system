@@ -12,7 +12,7 @@ class Document2020Controller extends Controller
     public function index()
     {
         $title = 'Dokumen 2020';
-        $documents = Document2020::get();
+        $documents = Document2020::with('conceptor')->get();
         return view('dokumen.dokumen_2020.index', compact('documents', 'title'));
     }
 
@@ -26,7 +26,7 @@ class Document2020Controller extends Controller
     public function edit($id)
     {
         $title = 'Edit Dokumen';
-        $document = Document2020::findOrFail($id);
+        $document = Document2020::with('conceptor')->findOrFail($id);
         $progress = json_decode($document->progress);
         $conceptors = Conceptor::get();
         return view('dokumen.dokumen_2020.edit', compact('title', 'document', 'progress', 'conceptors'));
